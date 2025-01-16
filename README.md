@@ -91,11 +91,11 @@ Ce projet démontre l'intégration harmonieuse de technologies modernes dans un 
 ---
 
 ## Problèmes dans l'état
-Mon raspberry 3b n'est pas dans les capacités d'acceuillir influx, asp (ou autre type d'application C#) et des fenêtres chromiums. Les solutions sont donc:
-   - Acheter un rpi5 mais très cher (Louis peut me preter le siens pour tester et être sûr avant achat) (Technobel ne possède que des 3b et 3b+)
+Mon raspberry 3b n'est pas dans les capacités d'accueillir influx, asp (ou autre type d'application C#) et des fenêtres chromiums. Les solutions sont donc:
+   - Acheter un rpi5 mais très cher (Louis peut me prêter le sien pour tester et être sûr avant achat) (Technobel ne possède que des 3b et 3b+)
    - Utiliser le rpi comme un relais vers un serveur qui s'occuperait de réceptionner l'émission radio et de l'envoyer vers le serveur influx sur une autre machine
 
-Je voudrai resté sur ton idée initial d'utiliser un raspberry. Ca permet d'avoir une infrastructure minimal. Le fait d'avoir un serveur derrière va être energivore. 
+Je voudrais rester sur ton idée initiale d'utiliser un raspberry. Ca permet d'avoir une infrastructure minimale. Le fait d'avoir un serveur derrière va être énergivore. 
 
 ---
 
@@ -106,16 +106,16 @@ Je voudrai resté sur ton idée initial d'utiliser un raspberry. Ca permet d'avo
 
 ### Capteur DHT11 avec Attiny85
 
-Après avoir discuté avec Michael, il serait préférable d'embarquer un régulateur de tension vers 3.3v entre le régulateur de charge et le reste du système vu que l'attiny85 ne possède pas de régulateur.
+Après avoir discuté avec Michael, il serait préférable d'embarquer un régulateur de tension vers 3.3V entre le régulateur de charge et le reste du système vu que l'attiny85 ne possède pas de régulateur.
 
 ![dht11__attiny85](dht11__attiny85.png "dht11__attiny85")
 ![dht11__attiny85_3d](dht11__attiny85_3d.png "dht11__attiny85_3d")
 
 
 ### Configuration du mirroir connecté
-Ceci est l'interface de configuration du mirroir connecté. J'avais testé ceci durant mes vacances. L'idée, c'est on importe des modules et puis on choisis comment les diposer sur notre mirroir. Le cadre noir correspond à l'écran. Dans une interface de configuration, on pourra définir la résolution et l'orientation de l'écran.
+Ceci est l'interface de configuration du miroir connecté. J'avais testé ceci durant mes vacances. L'idée, c'est d'importer des modules et puis on choisit comment les disposer sur notre mirroir. Le cadre noir correspond à l'écran. Dans une interface de configuration, on pourra définir la résolution et l'orientation de l'écran.
 
-Concernant les modules dont je parle plus haut, c'est de pouvoir concevoir des modules en web ou via une application qui sera lancé dans une fenêtre indépendantes. La plupart des systèmes de mirroirs connectés ont le défaut d'être bloqué avec des modules et pour en ajouter des nouveaux, c'est beaucoup de chipotages. Je voudrai concevoir un système où on fournirait les sources du site (dans le cas d'un module basé sur projet web), l'application auto-génerai une configuration apache et puis programme son affichage sur le mirroir.
+Concernant les modules dont je parle plus haut, c'est de pouvoir concevoir des modules en web ou via une application qui sera lancée dans une fenêtre indépendante. La plupart des systèmes de miroirs connectés ont le défaut d'être bloqués avec des modules et pour en ajouter de nouveaux, c'est beaucoup de chipotages. Je voudrais concevoir un système où l'on fournirait les sources du site (dans le cas d'un module basé sur un projet web), l'application auto-génererait une configuration Apache et programmerait son affichage sur le miroir.
 
 
 #### Configuration de la disposition des modules.
@@ -129,6 +129,6 @@ Concernant les modules dont je parle plus haut, c'est de pouvoir concevoir des m
 
 #### Contenu du script Launch_chromium_window
 
-J'ai été aidé par gpt pour les paramètres de bash, pour le reste j'ai du lire la doc de chromium. Ce permet de lancer chromium en mode kiosk donc focalisé sur le site en lui-même à des positions précises et à des dimentions précises. En lancant plusieurs instances, j'avais remarqué que tous les paramètres sont calqués sur la premières lancée. En ajoutant --user-data-dir, ca permet d'avoir une session unique pour chaque fenêtre
+J'ai été aidé par GPT pour les paramètres de bash, pour le reste j'ai dû lire la doc de Chromium. Ce permet de lancer Chromium en mode kiosk donc focalisé sur le site en lui-même à des positions précises et à des dimensions précises. En lançant plusieurs instances, j'avais remarqué que tous les paramètres sont calqués sur la première lancée. En ajoutant --user-data-dir, cela permet d'avoir une session unique pour chaque fenêtre
 ![mirroir_test_launch_chromium](mirroir_test_laucnh_chromium.png "mirroir_test_launch_chromium")
 
